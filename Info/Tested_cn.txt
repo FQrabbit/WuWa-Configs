@@ -1,0 +1,55 @@
+--- 已经被游戏设置为 0（禁用） ---
+r.FinishCurrentFrame  ; 禁用完成当前帧（可能会影响帧率平滑度）
+r.HZBOcclusion  ; 禁用 HZB 遮挡（层次化 Z 缓冲遮挡）
+s.AsyncLoadingUseFullTimeLimit  ; 禁用异步加载使用完全时间限制
+
+--- 已经被游戏设置为 1（启用）或最高质量 ---
+r.AsyncCreateLightPrimitiveInteractions  ; 启用异步创建光源原始交互
+r.AsyncPipelineCompile  ; 启用异步管道编译
+r.FidelityFX.FSR.RCAS.Enabled  ; 启用 FidelityFX FSR RCAS
+r.OneFrameThreadLag  ; 启用一帧线程延迟
+r.PostProcessAAQuality  ; 启用后处理抗锯齿质量
+r.RDG.AsyncCompute  ; 启用 RDG 异步计算
+r.Shaders.FastMath  ; 启用快速数学着色器
+r.Shaders.Optimize  ; 启用着色器优化
+r.Streaming.MipBias  ; 启用流式传输 MIP 偏差
+r.XGEShaderCompile  ; 启用 XGE 着色器编译
+FX.AllowAsyncTick  ; 启用异步滴答效果
+fx.Niagara.AllowAsyncWorkToEndOfFrame  ; 允许 Niagara 异步工作到帧结束
+s.AsyncLoadingThreadEnabled  ; 启用异步加载线程
+s.UseBackgroundLevelStreaming  ; 启用后台层级流式传输
+
+--- 游戏覆盖/没有效果 ---
+r.DefaultFeature.AntiAliasing  ; 默认特性抗锯齿
+r.ReflectionCaptureResolution  ; 反射捕捉分辨率
+r.SkeletalMeshLODBias  ; 骨骼网格 LOD 偏差
+r.TemporalAASamples  ; TAA 采样数
+r.Tonemapper.Sharpen  ; 色调映射锐化
+s.AsyncLoadingTimeLimit  ; 异步加载时间限制
+s.LevelStreamingActorsUpdateTimeLimit  ; 层级流式传输对象更新时间限制
+
+--- 无法正常工作 ---
+r.TemporalAACatmullRom  ; TAA Catmull-Rom 插值
+r.MaxAnisotropy  ; 最大各向异性过滤（即使设置为 16 也仍然模糊，建议在 NVIDIA/AMD 控制面板中设置）
+
+--- 游戏无法识别 ---
+r.Streaming.DropMips  ; 流式传输时丢弃 MIP 贴图
+r.UseShaderCaching  ; 使用着色器缓存
+r.UseShaderPredraw  ; 使用着色器预绘制
+
+--- 游戏已经有自己的缓存构建，如果不编译 PSO 生成则无效，参见 UE 文档 ---
+r.ShaderPipelineCache.Enabled=1  ; 启用着色器管道缓存
+r.ShaderPipelineCache.LazyLoadShadersWhenPSOCacheIsPresent=1  ; 当 PSO 缓存存在时延迟加载着色器
+r.ShaderPipelineCache.LogPSO=1  ; 记录 PSO 日志
+r.ShaderPipelineCache.PreOptimizeEnabled=1  ; 启用预优化
+r.ShaderPipelineCache.SaveBoundPSOLog=1  ; 保存绑定的 PSO 日志
+r.ShaderPipelineCache.SaveUserCache=1  ; 保存用户缓存
+r.ShaderPipelineCache.StartupMode=1  ; 启动模式
+
+--- DLSS ---
+# 游戏版本 1.0.2 使用 DLSS v3.5.0，DLSS预设平衡和自动曝光开启
+r.NGX.DLSS.Sharpness  ; DLSS 锐化（对于 DLSS >= v2.5.1 无效）
+r.NGX.DLSS.AutoExposure  ; DLSS 自动曝光（0=关闭，1=开启 [默认]）
+r.NGX.DLSS.Quality  ; DLSS 质量（-2 到 1 有效，但 2 无效。游戏将使用 0 [-2=超性能，-1=性能，0=平衡，1=质量，2=超质量]）
+r.NGX.DLAA.Enable  ; 启用 DLAA（无效，未在 UE 项目中启用）
+r.NGX.DLSS.Preset=3  ; DLSS 预设（0=项目设置，1=A，2=B，3=C [默认]，4=D，5=E [在 DLSS v3.5.0 中不可用，需要 DLSS >= v3.7]，6=F，7=G [尚未实现]）

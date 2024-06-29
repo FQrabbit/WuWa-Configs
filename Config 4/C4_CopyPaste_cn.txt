@@ -1,0 +1,47 @@
+; 不再使用UE4的TAA上采样，因为FSR已经启用
+
+[SystemSettings]
+r.ScreenSizeCullRatioFactor=5  ; 控制屏幕尺寸裁剪比例，数值越高裁剪越多
+r.Color.Max=1.1  ; 颜色最大值
+r.Color.Mid=0.55  ; 颜色中间值
+r.KuroTonemapping=1  ; 启用Kuro色调映射
+r.Kuro.GlobalLightQuality=3  ; Kuro全局光照质量，数值越高质量越好
+r.kuro.LensflareSunDiskSize=0.1  ; 镜头光晕中的太阳盘大小
+r.AmbientOcclusionMaxQuality=60  ; 环境光遮蔽最大质量，60表示中等质量
+r.Shadow.FilterMethod=0  ; 阴影过滤方法
+r.Shadow.MaxCSMResolution=512  ; 阴影最大级联阴影贴图分辨率
+r.Shadow.MinResolution=512  ; 阴影最小分辨率
+r.Shadow.PerObjectShadowMapResolution=512  ; 每个物体的阴影贴图分辨率
+r.Shadow.PerObjectResolutionMax=512  ; 每个物体的最大阴影分辨率
+r.Shadow.PerObjectResolutionMin=512  ; 每个物体的最小阴影分辨率
+r.DetailMode=0  ; 细节模式，0表示低细节模式。这种模式下，游戏中许多细节对象将被省略，以提高性能。1表示中等细节模式。大多数细节对象会显示，但可能会省略一些次要的装饰性细节。2表示高细节模式。所有细节对象都会显示，包括所有装饰性细节。
+r.MaterialQualityLevel=2  ; 材质质量级别，2表示中等质量
+r.CompileShadersForDevelopment=0  ; 禁用为开发编译着色器
+r.SSR.Quality=2  ; 屏幕空间反射质量，2表示中等质量
+r.SSR.Temporal=1  ; 启用屏幕空间反射的时间抗锯齿
+r.SSR.HalfResSceneColor=1  ; 屏幕空间反射使用半分辨率场景颜色
+r.TemporalAA.Algorithm=0  ; 时间抗锯齿算法
+r.TemporalAA.Upsampling=0  ; 禁用时间抗锯齿上采样
+r.TemporalAA.ClampTolerant=0  ; 时间抗锯齿容忍度
+r.TemporalAACurrentFrameWeight=0.35  ; 时间抗锯齿当前帧权重
+r.TemporalAAFilterSize=0.1  ; 时间抗锯齿滤波器大小
+r.FidelityFX.FSR.RCAS.Sharpness=0.4  ; FidelityFX FSR RCAS锐度
+FX.BatchAsync=1  ; 启用特效批处理异步
+FX.BatchAsyncBatchSize=16  ; 特效批处理异步批处理大小
+FX.EarlyScheduleAsync=1  ; 提前安排特效异步处理
+fx.Niagara.ForceAutoPooling=1  ; 强制Niagara特效自动池化
+FX.MaxCPUParticlesPerEmitter=64  ; 每个发射器的最大CPU粒子数
+fx.MaxNiagaraCPUParticlesPerEmitter=64  ; 每个发射器的最大Niagara CPU粒子数
+FX.MaxGPUParticlesSpawnedPerFrame=64  ; 每帧生成的最大GPU粒子数
+fx.MaxNiagaraGPUParticlesSpawnPerFrame=64  ; 每帧生成的最大Niagara GPU粒子数
+
+[/Script/Engine.RendererSettings]
+r.GPUCrashDebugging=0  ; 禁用GPU崩溃调试
+
+[/Script/Engine.StreamingSettings]
+s.MinBulkDataSizeForAsyncLoading=0  ; 异步加载的最小批量数据大小
+s.PriorityAsyncLoadingExtraTime=0  ; 优先级异步加载额外时间
+s.PriorityLevelStreamingActorsUpdateExtraTime=0  ; 优先级流式加载的对象更新额外时间。这个参数决定了在流式加载过程中，给高优先级的对象（如玩家附近的角色或物体）分配额外的时间，以确保它们能更快加载并更新，从而减少加载时的卡顿和延迟。
+
+[Core.Log]
+global=none  ; 设置全局日志记录级别为无，禁用日志记录
