@@ -1,5 +1,6 @@
 # 鸣潮视频配置
-纯搬运，如果你需要看最新配置，请访问[源项目](https://g.nga.cn/read.php?tid=40329895)。  
+Pure copy without any modification.  
+纯搬运，如果你需要看最新配置，请访问[源项目](https://github.com/AlteriaX/WuWa-Configs)。  
 其他使用说明可查看[nga帖子](https://g.nga.cn/read.php?tid=40329895)，这里就不再过多赘述。
 
 根据您的显卡型号等级，可以大致确定你需要哪种配置：
