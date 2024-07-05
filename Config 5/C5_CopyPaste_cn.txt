@@ -1,50 +1,45 @@
-; 不再使用UE4的TAA上采样，因为FSR已经启用
-; 低设置会禁用大多数阴影
-; 如果想要恢复一些草，请将 foliage.DensityScale 设置为 0.1 或更高
+; 使用该mod后，你可以使用FSR，不再强制更改屏幕百分比 - 开启（关闭TAA上采样），关闭（开启TAA上采样）
+; 如果需要更多FPS，可以将r.ScreenPercentage设置为更低的值
+; 低设置会禁用大部分阴影
+; 如果想要一些草，可以将foliage.DensityScale更改为0.1或更高
 
 [SystemSettings]
-r.ScreenSizeCullRatioFactor=7  ; 设置屏幕尺寸剔除比例因子，较高的值会剔除更多远距离对象以提高性能
-r.Color.Max=1.1  ; 设置颜色的最大值，影响整体亮度或对比度
-r.Color.Mid=0.55  ; 设置颜色的中间值，影响色调映射
-r.KuroTonemapping=1  ; 启用 Kuro 色调映射
-r.Kuro.GlobalLightQuality=3  ; 设置全局光照质量，较高的值表示更高的光照质量
-r.kuro.LensflareSunDiskSize=0.1  ; 设置太阳镜头光晕的大小
-r.AmbientOcclusionMaxQuality=0  ; 禁用环境光遮蔽，以提高性能
-r.Fog=0  ; 禁用雾效果
-r.SubsurfaceScattering=0  ; 禁用次表面散射效果
-foliage.DensityScale=0  ; 设置植被密度为 0，完全禁用草和其他植被。如果想要一些草，可以将其设置为 0.1 或更高
-r.Shadow.FilterMethod=0  ; 设置阴影过滤方法
-r.Shadow.MaxCSMResolution=256  ; 设置阴影贴图的最大分辨率
-r.Shadow.MinResolution=256  ; 设置阴影贴图的最小分辨率
-r.Shadow.PerObjectShadowMapResolution=256  ; 设置每个对象阴影贴图的分辨率
-r.Shadow.PerObjectResolutionMax=256  ; 设置每个对象的最大阴影分辨率
-r.Shadow.PerObjectResolutionMin=256  ; 设置每个对象的最小阴影分辨率
-r.DetailMode=0  ; 细节模式，0表示低细节模式。这种模式下，游戏中许多细节对象将被省略，以提高性能。1表示中等细节模式。大多数细节对象会显示，但可能会省略一些次要的装饰性细节。2表示高细节模式。所有细节对象都会显示，包括所有装饰性细节。
-r.MaterialQualityLevel=0  ; 设置材质质量级别为低
-r.CompileShadersForDevelopment=0  ; 禁用为开发编译着色器
-r.SSR.Quality=0  ; 禁用屏幕空间反射
-r.TemporalAA.Algorithm=0  ; 禁用 TAA 算法
-r.TemporalAA.Upsampling=0  ; 禁用 TAA 上采样
-r.TemporalAA.ClampTolerant=0  ; 设置 TAA 钳制容忍度
-r.TemporalAACurrentFrameWeight=0.35  ; 设置 TAA 当前帧权重
-r.TemporalAAFilterSize=0.1  ; 设置 TAA 过滤器大小
-r.FidelityFX.FSR.RCAS.Sharpness=0.4  ; 设置 FSR RCAS 锐化程度
-FX.BatchAsync=1  ; 启用异步批处理效果
-FX.BatchAsyncBatchSize=8  ; 设置异步批处理的批次大小
-FX.EarlyScheduleAsync=1  ; 启用早期调度异步效果
-fx.Niagara.ForceAutoPooling=1  ; 强制 Niagara 自动池化
-FX.MaxCPUParticlesPerEmitter=48  ; 设置每个发射器的最大 CPU 粒子数
-fx.MaxNiagaraCPUParticlesPerEmitter=48  ; 设置每个 Niagara 发射器的最大 CPU 粒子数
-FX.MaxGPUParticlesSpawnedPerFrame=48  ; 设置每帧生成的最大 GPU 粒子数
-fx.MaxNiagaraGPUParticlesSpawnPerFrame=48  ; 设置每帧生成的最大 Niagara GPU 粒子数
-
-[/Script/Engine.RendererSettings]
-r.GPUCrashDebugging=0  ; 禁用 GPU 崩溃调试
+r.ScreenPercentage=67 ; 屏幕百分比，67表示降低分辨率以提高性能
+r.ScreenSizeCullRatioFactor=5 ; 屏幕尺寸剔除比例因子
+r.Color.Max=1.1 ; 颜色最大值
+r.Color.Mid=0.55 ; 颜色中间值
+r.KuroTonemapping=1 ; 启用Kuro色调映射
+r.Kuro.GlobalLightQuality=3 ; 全局光照质量，3表示中等质量
+r.kuro.LensflareSunDiskSize=0.1 ; 镜头光晕太阳盘大小
+r.AmbientOcclusionMaxQuality=0 ; 禁用环境光遮蔽
+r.SubsurfaceScattering=0 ; 禁用次表面散射
+foliage.DensityScale=0 ; 禁用植被密度
+r.Shadow.FilterMethod=0 ; 阴影过滤方法，0表示禁用过滤
+r.Shadow.MaxCSMResolution=256 ; 最大级联阴影贴图分辨率
+r.Shadow.MinResolution=256 ; 阴影最小分辨率
+r.Shadow.PerObjectShadowMapResolution=256 ; 每个对象的阴影贴图分辨率
+r.Shadow.PerObjectResolutionMax=256 ; 每个对象最大阴影分辨率
+r.Shadow.PerObjectResolutionMin=256 ; 每个对象最小阴影分辨率
+r.DetailMode=0 ; 细节模式，0表示低细节模式。这种模式下，游戏中许多细节对象将被省略，以提高性能。1表示中等细节模式。大多数细节对象会显示，但可能会省略一些次要的装饰性细节。2表示高细节模式。所有细节对象都会显示，包括所有装饰性细节。
+r.MaterialQualityLevel=0 ; 材质质量等级，0表示低质量
+r.SSR.Quality=0 ; 禁用屏幕空间反射
+r.TemporalAA.Algorithm=0 ; 时间抗锯齿算法，0表示默认
+r.TemporalAA.Upsampling=1 ; 启用时间抗锯齿的上采样
+r.TemporalAA.ClampTolerant=0 ; 时间抗锯齿的容忍度
+r.TemporalAACurrentFrameWeight=0.35 ; 当前帧权重
+r.TemporalAAFilterSize=0.1 ; 时间抗锯齿滤波器大小
+r.TemporalAASamples=2 ; 时间抗锯齿采样数
+r.Kuro.SMAALevelOverride=4 ; SMAA级别覆盖，4表示最高质量
+r.FidelityFX.FSR.SecondaryUpscale=1 ; 启用FidelityFX FSR的二次上采样
+r.FidelityFX.FSR.RCAS.Sharpness=0.4 ; FidelityFX FSR的RCAS锐度，0.4表示适中锐度
+FX.EarlyScheduleAsync=1 ; 提前安排异步FX任务
+fx.Niagara.ForceAutoPooling=1 ; 强制Niagara进行自动池化
+wp.Runtime.KuroRuntimeStreamingRangeOverallScale=0.5 ; Kuro运行时流媒体范围整体比例
 
 [/Script/Engine.StreamingSettings]
-s.MinBulkDataSizeForAsyncLoading=0  ; 设置异步加载的最小批量数据大小
-s.PriorityAsyncLoadingExtraTime=0  ; 设置异步加载的额外优先时间
-s.PriorityLevelStreamingActorsUpdateExtraTime=0  ; 设置优先级层级流式加载对象更新的额外时间
+s.MinBulkDataSizeForAsyncLoading=0 ; 异步加载的最小批量数据大小
+s.PriorityAsyncLoadingExtraTime=0 ; 异步加载的额外优先时间
+s.PriorityLevelStreamingActorsUpdateExtraTime=0 ; 优先级流式加载对象更新的额外时间
 
 [Core.Log]
-global=none  ; 设置全局日志记录级别为无，禁用日志记录
+global=none ; 全局日志级别，none表示禁用日志
